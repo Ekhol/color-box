@@ -8,22 +8,22 @@ function NewBoxForm({ createBox }) {
         backgroundColor: ""
     });
 
-    const input = e => {
+    const getInput = e => {
         e.preventDefault();
         createBox({ ...formData, id: uuid() });
         setFormData({ height: "", width: "", backgroundColor: "" });
     };
 
     const handleChange = e => {
-        const { name, val } = e.target;
+        const { name, value } = e.target;
         setFormData(formData => ({
-            ...formData, [name]: val
+            ...formData, [name]: value
         }));
     };
 
     return (
         <div>
-            <form onSubmit={input}>
+            <form onSubmit={getInput}>
                 <div>
                     <label htmlFor="height">Height</label>
                     <input onChange={handleChange} type="text" name="height" id="height" value={formData.height} />

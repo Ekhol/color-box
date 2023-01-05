@@ -3,12 +3,12 @@ import Box from "./Box";
 import NewBoxForm from "./NewBoxForm";
 
 function BoxList() {
-    const [boxes, handleBoxes] = useState([]);
+    const [boxes, setBoxes] = useState([]);
     const add = boxObject => {
-        handleBoxes(boxes => [...boxes, boxObject]);
+        setBoxes(boxes => [...boxes, boxObject]);
     };
     const remove = id => {
-        handleBoxes(boxes => boxes.filter(box => box.id !== id));
+        setBoxes(boxes => boxes.filter(box => box.id !== id));
     };
 
     const boxDetails = boxes.map(box => (
